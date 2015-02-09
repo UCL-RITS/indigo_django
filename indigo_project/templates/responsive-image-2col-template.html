@@ -74,44 +74,7 @@
 		<a class="header__close" href="#">
 			<img src="//static.ucl.ac.uk/indigo/images/close.png" alt="X" />Close</a>
 
-		<div class="masthead">
-
-			<div class="wrapper clearfix">
-
-				<div class="masthead__search">
-					<form action="#" method="get">
-						<!--
-						<div class="search-type">
-							<input type="radio" id="ucl-site" name="operation" value="1" checked="checked">
-							<label for="ucl-site" class="site">Site</label>
-							<input type="radio" id="ucl-search" name="operation" value="2">
-							<label for="ucl-search" class="staff">Directory</label>
-						</div>
-						-->
-						<div class="search-form">
-							<input type="search" placeholder="Search UCL websites" class="search-form__input search-form__input--search" value="">
-						</div>
-
-						<input type="submit" name="sumbit" value="Go" class="btn search-form__input search-form__input--submit" />
-					</form>
-				</div>
-
-				<nav class="masthead__nav m-clear">
-					<ul class="masthead__list">
-						<li class="masthead__item"><a href="index.php" class="masthead__link">UCL Home</a>
-						</li>
-						<li class="masthead__item"><a href="prospective-students.php" class="masthead__link">Prospective students</a>
-						</li>
-						<li class="masthead__item"><a href="current-students.php" class="masthead__link">Current students</a>
-						</li>
-						<li class="masthead__item"><a href="staff.php" class="masthead__link">Staff</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-
-		</div>
-		<!-- end .masthead -->
+		{% include "includes/masthead.html" %}
 
 		<div class="wrapper">
 			<div class="photograph">
