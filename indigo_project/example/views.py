@@ -16,6 +16,6 @@ def home(request):
 
 
 def template(request, template_name):
-    return render(request, 'tpl.html', {
+    return render(request, 'demo.html', {
         'template_name': template_name,
     })
