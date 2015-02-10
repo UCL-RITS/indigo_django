@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
 <!--[if IE 8]> <html lang="en" class="lt-ie9 no-js"> <![endif]-->
@@ -31,22 +33,22 @@
     <title>{% block page_title %}UCL{% endblock %}</title>
 
     {% block css %}
-        <link href="//static.ucl.ac.uk/indigo/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+        <link href="{% static 'indigo/css/screen.min.css' %}" media="screen, projection" rel="stylesheet" type="text/css" />
 
-        <!--[if IE]><link href="//static.ucl.ac.uk/indigo/css/ie.min.css" rel="stylesheet" /><![endif]-->
-        <!--[if lt IE 8]><link href="//static.ucl.ac.uk/indigo/css/ie-old.min.css" rel="stylesheet" /><![endif]-->
+        <!--[if IE]><link href="{% static 'indigo/css/ie.min.css' %}" rel="stylesheet" /><![endif]-->
+        <!--[if lt IE 8]><link href="{% static 'indigo/css/ie-old.min.css' %}" rel="stylesheet" /><![endif]-->
     {% endblock %}
 
 
     {% block icons %}
-        <link rel="shortcut icon" href="//static.ucl.ac.uk/indigo/images/favicon.ico" />
-        <link rel="apple-touch-icon-precomposed" href="favicon-152.png">
+        <link rel="shortcut icon" href="{% static 'indigo/images/favicon.ico' %}" />
+        <link rel="apple-touch-icon-precomposed" href="{% static 'indigo/favicon-152.png' %}">
         <meta name="msapplication-TileColor" content="#000000">
-        <meta name="msapplication-TileImage" content="favicon-144.png">
+        <meta name="msapplication-TileImage" content="{% static 'indigo/favicon-144.png' %}">
     {% endblock %}
 
     {% block js %}
-        <script src="//static.ucl.ac.uk/indigo/js/lib/modernizr-custom.js"></script>
+        <script src="{% static 'indigo/js/lib/modernizr-custom.js' %}"></script>
 
         <script>
         var cuttingTheMustard = document.querySelector && window.localStorage && window.addEventListener;
@@ -57,24 +59,24 @@
                 //if old browser load the shiv
                 ,
             nope: [
-                '//static.ucl.ac.uk/indigo/js/lib/html5shiv-printshiv.min.js', '//static.ucl.ac.uk/indigo/js/lib/respond.min.js'
+            '{% static "indigo/js/lib/html5shiv-printshiv.min.js" %}', '{% static "indigo/js/lib/respond.min.js" %}'
             ]
         });
         //set conditional assets for main.js
         var globalSiteSpecificVars = {
-            pathToJquery: '//static.ucl.ac.uk/indigo/js/lib/jquery-1.9.1.min',
+            pathToJquery: '{% static "indigo/js/lib/jquery-1.9.1.min" %}',
             googleAnalyticsIdsArray: [] //specify array of site specific id's NOT UCL generic UA-943297-1
         }
         if (cuttingTheMustard) {
-            globalSiteSpecificVars.pathToJquery = "//static.ucl.ac.uk/indigo/js/lib/jquery-2.1.1.min";
+            globalSiteSpecificVars.pathToJquery = '{% static "indigo/js/lib/jquery-2.1.1.min" %}';
         }
         </script>
 
-        <script src="//static.ucl.ac.uk/indigo/js/lib/require.min.js"></script>
-        <script src="//static.ucl.ac.uk/indigo/js/main.js"></script>
+        <script src="{% static 'indigo/js/lib/require.min.js' %}"></script>
+        <script src="{% static 'indigo/js/main.js' %}"></script>
         <script>
             require.config({
-                baseUrl: '{{ STATIC_URL }}js/lib'
+                baseUrl: '{% static "indigo/js/lib" %}'
             });
             {% block requirejs %}
 	            require(["app/general","app/searchWithAutoComplete"]);//load the default stuff
@@ -91,7 +93,7 @@
 	<header class="header header--desktop">
 
 		<a class="header__close" href="#">
-			<img src="//static.ucl.ac.uk/indigo/images/close.png" alt="X" />Close</a>
+            <img src="{% static 'indigo/images/close.png' %}" alt="X" />Close</a>
 
 		{% include "includes/masthead.html" %}
 
@@ -101,7 +103,7 @@
 					<div class="brand">
 						<h2 class="brand__heading">UCL Design Language</h2>
 						<a href="/" class="brand__link"><span class="visually-hidden">Home</span></a>
-					<img src="//static.ucl.ac.uk/indigo/images/ucl-logo.svg" alt="UCL logo" id="logo" class="brand__logo">
+                        <img src="{% static 'indigo/images/ucl-logo.svg' %}" alt="UCL logo" id="logo" class="brand__logo">
 					</div>
 				<p class="photograph__description">A nascent retina, generated from a 3D embryonic stem cell culture</p>
 			</div>
@@ -190,7 +192,7 @@
 		<header class="header header--mobile default-header">
 
             <a class="header__open" href="#">
-				<img src="//static.ucl.ac.uk/indigo/images/ucl-menu.svg" alt="Menu" />
+                <img src="{% static 'indigo/images/ucl-menu.svg' %}" alt="Menu" />
 			</a>
 
 		</header>
