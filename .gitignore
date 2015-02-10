@@ -90,3 +90,9 @@ sass/.sass-cache/
 /sass/venue.scss
 
 require.html
+
+# Sqlite database
+db.sqlite3
+
+# python bytecode
+*.pyc

@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <ul>
+    {% for name in template_names %}
+    <li><a href="{% url "template" name %}">{{ name }}</a></li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
