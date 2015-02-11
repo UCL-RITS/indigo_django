@@ -37,7 +37,8 @@ tags
 .Trashes
 
 # nodejs npm modules
-/node_modules
+**/node_modules
+npm-debug.log
 
 #page speed test records
 /pagespeedTests

@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
 	grunt.config.init({
-		pkg: grunt.file.readJSON('package.JSON'),
+		pkg: grunt.file.readJSON('package.json'),
 		concat: {
 			option: {
 				banner: '/*! JS concat <%= grunt.template.today("dddd, mmmm dS, yyyy, h:MM:ss TT")%> */\n',
