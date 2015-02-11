@@ -30,7 +30,7 @@
         <!-- end social meta -->
     {% endblock %}
 
-    <title>{% block page_title %}UCL{% endblock %}</title>
+    <title>{% block page_title %}{{ request.site.name }}{% endblock %}</title>
 
     {% block css %}
         <link href="{% static 'indigo/css/screen.min.css' %}" media="screen, projection" rel="stylesheet" type="text/css" />
