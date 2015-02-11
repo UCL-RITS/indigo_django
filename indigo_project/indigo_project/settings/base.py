@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'indigo',
     'indigo_project',
     'example',
 )
@@ -89,13 +90,5 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '//static.ucl.ac.uk/'
-
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates'),
-)
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
 
 SITE_ID = 1

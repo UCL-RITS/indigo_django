@@ -17,5 +17,5 @@ def home(request):
 
 def template(request, template_name):
     return render(request, 'demo.html', {
-        'template_name': template_name,
+        'template_name': 'indigo/{}'.format(template_name),
     })

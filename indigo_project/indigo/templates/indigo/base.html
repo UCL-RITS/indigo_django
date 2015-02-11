@@ -95,11 +95,11 @@
 		<a class="header__close" href="#">
             <img src="{% static 'indigo/images/close.png' %}" alt="X" />Close</a>
 
-		{% include "includes/global-masthead.html" %}
+		{% include "indigo/includes/global-masthead.html" %}
 
 		<div class="wrapper">
 
-            {% include "includes/ucl-banner.html" %}
+            {% include "indigo/includes/ucl-banner.html" %}
 
 			<div class="sidebar">
 
@@ -147,7 +147,7 @@
 
 			<div class="site-content__body">
 
-				{% include "includes/breadcrumbs.html" %}
+				{% include "indigo/includes/breadcrumbs.html" %}
 
 				<!-- start main slot where silva content gets rendered-->
 
@@ -180,7 +180,7 @@
 	</div>
 	<!-- end .site-content -->
 
-	{% include "includes/footer.html" %}
+	{% include "indigo/includes/footer.html" %}
 
     {% endblock body %}
 
