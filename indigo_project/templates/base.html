@@ -109,75 +109,29 @@
 			</div>
 			<!-- end .photograph -->
 
-            {% block nav_sidebar %}
 			<div class="sidebar">
 
 				<nav class="nav nav--mobile">
 					<ul>
-                        {% block nav_links_mobile %}
-						<li><a href="index.html" class="home-link">Home</a>
-						</li>
-
-						<li><a href="#">Main navigation items</a>
-
-							<ul>
-								<li><a href="#">Lists can be nested</a>
-								</li>
-
-								<li><a href="#">Lists can be nested</a>
-								</li>
-							</ul>
-						</li>
-
-						<li><a href="#">Main navigation items</a>
-						</li>
-                        {% endblock nav_links_mobile %}
+                        {% block nav_mobile_links %}
+                        {% endblock nav_mobile_links %}
 					</ul>
 				</nav>
 
 				<nav class="nav nav--left">
 					<ul>
-                        {% block nav_links_left %}
-
-						<li><a href="index.html" class="home-link">Home</a>
-						</li>
-
-						<li><a href="#">Main navigation items</a>
-
-							<ul>
-								<li><a href="#">Lists can be nested</a>
-								</li>
-
-								<li><a href="#">Lists can be nested</a>
-								</li>
-							</ul>
-
-						</li>
-
-						<li><a href="#">Main navigation items</a>
-						</li>
-                        {% endblock nav_links_left %}
-
+                        {% block nav_left_links %}
+                        {% endblock nav_left_links %}
 					</ul>
 				</nav>
 
 			</div>
 			<!-- end .sidebar -->
-            {% endblock nav_sidebar %}
 
 			<nav class="nav nav--top">
 				<ul>
-                    {% block nav_links_top %}
-					<li>
-						<a href="#">Home</a>
-					</li>
-					<li>
-						<a href="#">Main navigation items</a>
-					</li>
-					<li>
-						<a href="#">Main navigation items</a>
-					</li>
-                    {% endblock nav_links_top %}
+                    {% block nav_top_links %}
+                    {% endblock nav_top_links %}
 				</ul>
 			</nav>
 
