@@ -10,6 +10,7 @@ setup(
     name='indigo-django',
     version='0.1',
     packages=['indigo'],
+    install_requires=['Django>=1.7'],
     include_package_data=True,
     description='A simple Django app providing UCL Indigo layouts and styles',
     long_description=README,
