@@ -1,3 +1,14 @@
 {% extends "indigo/base.html" %}
 
 {% block body_class %}layout-vertical layout-vertical--nav-1col{% endblock %}
+
+{% block content_body %}
+
+	{% include "indigo/includes/breadcrumbs.html" %}
+
+	<div class="site-content__main">
+			{% block content_main %}
+			{% endblock %}
+	</div>
+
+{% endblock %}

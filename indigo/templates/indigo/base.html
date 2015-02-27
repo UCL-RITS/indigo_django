@@ -147,29 +147,33 @@
 
 			<div class="site-content__body">
 
-				{% include "indigo/includes/breadcrumbs.html" %}
+				{% block content_body %}
 
-				<!-- start main slot where silva content gets rendered-->
+					{% include "indigo/includes/breadcrumbs.html" %}
 
-				<div class="site-content__main">
+					<!-- start main slot where silva content gets rendered-->
 
-					<article class="article">
+					<div class="site-content__main">
 
-                        {% block content %}
-                        {% endblock %}
+						<article class="article">
 
-					</article>
+							{% block content %}
+							{% endblock %}
 
-					<p class="mod">Page created on
-					<time datetime="{% now "Y-m-d H:i" %}">{% now "d M y H:i" %}</time>
-					</p>
+						</article>
 
-				</div>
+						<p class="mod">Page created on
+						<time datetime="{% now "Y-m-d H:i" %}">{% now "d M y H:i" %}</time>
+						</p>
 
-				<!-- end main slot where silva content gets rendered-->
+					</div>
 
-                {% block content_sidebar %}
-                {% endblock %}
+					<!-- end main slot where silva content gets rendered-->
+
+					{% block content_sidebar %}
+					{% endblock %}
+
+				{% endblock content_body %}
 
 			</div>
 
