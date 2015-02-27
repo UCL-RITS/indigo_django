@@ -32,7 +32,7 @@
 
     <title>{% block page_title %}{{ request.site.name }}{% endblock %}</title>
 
-    {% block css %}
+    {% block styles %}
         <link href="{% static 'indigo/css/screen.min.css' %}" media="screen, projection" rel="stylesheet" type="text/css" />
 
         <!--[if IE]><link href="{% static 'indigo/css/ie.min.css' %}" rel="stylesheet" /><![endif]-->
@@ -40,14 +40,14 @@
     {% endblock %}
 
 
-    {% block icons %}
+    {% block favicons %}
         <link rel="shortcut icon" href="{% static 'indigo/images/favicon.ico' %}" />
         <link rel="apple-touch-icon-precomposed" href="{% static 'indigo/favicon-152.png' %}">
         <meta name="msapplication-TileColor" content="#000000">
         <meta name="msapplication-TileImage" content="{% static 'indigo/favicon-144.png' %}">
     {% endblock %}
 
-    {% block js %}
+    {% block head_scripts %}
         <script src="{% static 'indigo/js/lib/modernizr-custom.js' %}"></script>
 
         <script>
@@ -71,24 +71,11 @@
             globalSiteSpecificVars.pathToJquery = '{% static "indigo/js/lib/jquery-2.1.1.min" %}';
         }
         </script>
-
-        <script src="{% static 'indigo/js/lib/require.min.js' %}"></script>
-        <script src="{% static 'indigo/js/main.js' %}"></script>
-        <script>
-            require.config({
-                baseUrl: '{% static "indigo/js/lib" %}'
-            });
-            {% block requirejs %}
-	            require(["app/general","app/searchWithAutoComplete"]);//load the default stuff
-            {% endblock %}
-        </script>
-    {% endblock %}
+	{% endblock head_scripts %}
 
 </head>
 
 <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
-
-    {% block body %}
 
 	<header class="header header--desktop">
 
@@ -136,57 +123,35 @@
 	<div class="site-content wrapper">
 
 		<header class="header header--mobile default-header">
-
             <a class="header__open" href="#">
                 <img src="{% static 'indigo/images/ucl-menu.svg' %}" alt="Menu" />
 			</a>
-
 		</header>
 
 		<div class="site-content__inner clearfix">
-
 			<div class="site-content__body">
-
 				{% block content_body %}
-
-					{% include "indigo/includes/breadcrumbs.html" %}
-
-					<!-- start main slot where silva content gets rendered-->
-
-					<div class="site-content__main">
-
-						<article class="article">
-
-							{% block content %}
-							{% endblock %}
-
-						</article>
-
-						<p class="mod">Page created on
-						<time datetime="{% now "Y-m-d H:i" %}">{% now "d M y H:i" %}</time>
-						</p>
-
-					</div>
-
-					<!-- end main slot where silva content gets rendered-->
-
-					{% block content_sidebar %}
-					{% endblock %}
-
 				{% endblock content_body %}
-
 			</div>
-
-			<!--End last modified info-->
 		</div>
-
 
 	</div>
 	<!-- end .site-content -->
 
 	{% include "indigo/includes/footer.html" %}
 
-    {% endblock body %}
+	{% block scripts %}
+        <script src="{% static 'indigo/js/lib/require.min.js' %}"></script>
+        <script src="{% static 'indigo/js/main.js' %}"></script>
+        <script>
+            require.config({
+                baseUrl: '{% static "indigo/js/lib" %}'
+            });
+            {% block requirejs %}
+	            require(["app/general", "app/searchWithAutoComplete"]);//load the default stuff
+            {% endblock %}
+        </script>
+	{% endblock %}
 
 </body>
 
