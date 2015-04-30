@@ -1,0 +1,8 @@
+{% load indigo %}
+
+<fieldset class="form__group">
+  {{ field.label_tag }}
+  {{ field }}
+  {% indigo_field_errors field %}
+</fieldset>
+
