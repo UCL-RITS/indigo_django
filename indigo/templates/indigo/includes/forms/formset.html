@@ -3,5 +3,7 @@
 {{ formset.management_form }}
 
 {% for form in formset %}
-  {% indigo_form form %}
+  <div class="formset--form">
+    {% indigo_form form %}
+  </div>
 {% endfor %}
