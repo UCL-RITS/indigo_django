@@ -97,3 +97,7 @@ db.sqlite3
 
 # python bytecode
 *.pyc
+
+# test build files
+indigo_django.egg-info/
+.tox/
