@@ -228,15 +228,15 @@ gs.init();
 // UCL JS
 $(document).ready(function() {
 
-	$('.tabbed div').hide();
-	$('.tabbed div:first').show();
-	$('.tabbed ul li:first').addClass('is-active');
+	$('.tabbed .tabbed__content').hide();
+	$('.tabbed .tabbed__content:first').show();
+	$('.tabbed .tabbed__item:first').addClass('is-active');
 
-	$('.tabbed ul li a').click(function() {
-		$('.tabbed ul li').removeClass('is-active');
+	$('.tabbed .tabbed__link').click(function() {
+		$('.tabbed .tabbed__item').removeClass('is-active');
 		$(this).parent().addClass('is-active');
 		var currentTab = $(this).attr('href');
-		$('.tabbed div').hide();
+		$('.tabbed .tabbed__content').hide();
 		$(currentTab).show();
 		return false;
 	});

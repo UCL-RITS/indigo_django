@@ -12,6 +12,14 @@
 	padding-bottom: 2em;
 	@include gs-pad(dc, padinfull);
 	@include guttering;
+	@include js(true) {
+		display: none;
+	}
+	&.is-active {
+		@include js(true) {
+			display: block;
+		}
+	}
 }
 
 .tabbed__list {
