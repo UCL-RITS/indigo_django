@@ -71,7 +71,7 @@
             globalSiteSpecificVars.pathToJquery = '{% static "indigo/js/lib/jquery-2.1.1.min" %}';
         }
         </script>
-	{% endblock head_scripts %}
+  {% endblock head_scripts %}
 
   {% block extra_head %}
   {% endblock %}
@@ -80,70 +80,70 @@
 
 <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
 
-	<header class="header header--desktop">
+  <header class="header header--desktop">
 
-		<a class="header__close" href="#">
+    <a class="header__close" href="#">
             <img src="{% static 'indigo/images/close.png' %}" alt="X" />Close</a>
 
-		{% include "indigo/includes/global-masthead.html" %}
+    {% include "indigo/includes/global-masthead.html" %}
 
-		<div class="wrapper">
+    <div class="wrapper">
 
             {% include "indigo/includes/ucl-banner.html" %}
 
-			<div class="sidebar">
+      <div class="sidebar">
 
-				<nav class="nav nav--mobile">
-					<ul>
+        <nav class="nav nav--mobile">
+          <ul>
                         {% block nav_mobile_links %}
                         {% endblock nav_mobile_links %}
-					</ul>
-				</nav>
+          </ul>
+        </nav>
 
-				<nav class="nav nav--left">
-					<ul>
+        <nav class="nav nav--left">
+          <ul>
                         {% block nav_left_links %}
                         {% endblock nav_left_links %}
-					</ul>
-				</nav>
+          </ul>
+        </nav>
 
-			</div>
-			<!-- end .sidebar -->
+      </div>
+      <!-- end .sidebar -->
 
-			<nav class="nav nav--top">
-				<ul>
+      <nav class="nav nav--top">
+        <ul>
                     {% block nav_top_links %}
                     {% endblock nav_top_links %}
-				</ul>
-			</nav>
+        </ul>
+      </nav>
 
-		</div>
-		<!-- end .wrapper -->
+    </div>
+    <!-- end .wrapper -->
 
-	</header>
-	<!-- end .header -->
+  </header>
+  <!-- end .header -->
 
-	<div class="site-content wrapper">
+  <div class="site-content wrapper">
 
-		<header class="header header--mobile default-header">
+    <header class="header header--mobile default-header">
             <a class="header__open" href="#">
                 <img src="{% static 'indigo/images/ucl-menu.svg' %}" alt="Menu" />
-			</a>
-		</header>
+      </a>
+    </header>
 
-		<div class="site-content__inner clearfix">
-			<div class="site-content__body">
-				{% block content_body %}
-				{% endblock content_body %}
-			</div>
-		</div>
+    <div class="site-content__inner clearfix">
+      <div class="site-content__body">
+        {% block content_body %}
+        {% endblock content_body %}
+      </div>
+    </div>
 
-	</div>
-	<!-- end .site-content -->
+  </div>
+  <!-- end .site-content -->
 
-	{% include "indigo/includes/footer.html" %}
+  {% include "indigo/includes/footer.html" %}
 
-	{% block scripts %}
+  {% block scripts %}
         <script src="{% static 'indigo/js/lib/require.min.js' %}"></script>
         <script src="{% static 'indigo/js/main.js' %}"></script>
         <script>
@@ -151,10 +151,10 @@
                 baseUrl: '{% static "indigo/js/lib" %}'
             });
             {% block requirejs %}
-	            require(["app/general", "app/searchWithAutoComplete"]);//load the default stuff
+              require(["app/general", "app/searchWithAutoComplete"]);//load the default stuff
             {% endblock %}
         </script>
-	{% endblock %}
+  {% endblock %}
 
 </body>
 
