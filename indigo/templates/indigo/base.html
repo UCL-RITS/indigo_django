@@ -133,6 +133,16 @@
 
     <div class="site-content__inner clearfix">
       <div class="site-content__body">
+
+        {% block breadcrumbs %}
+          <nav class="breadcrumb clearfix">
+            <ul class="breadcrumb__list">
+              {% block breadcrumb_links %}
+              {% endblock %}
+            </ul>
+          </nav>
+        {% endblock %}
+
         {% block content_body %}
         {% endblock content_body %}
       </div>
