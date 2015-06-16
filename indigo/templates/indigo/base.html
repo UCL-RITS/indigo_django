@@ -161,7 +161,7 @@
           baseUrl: '{% static "indigo/js/lib" %}'
       });
       {% block requirejs %}
-        require(["app/general", "app/searchWithAutoComplete"]);//load the default stuff
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
       {% endblock %}
     </script>
   {% endblock %}
