@@ -153,7 +153,22 @@
 
   {% include "indigo/includes/footer.html" %}
 
+  {% comment %}
+  This is where django_debug_toolbar can inject its markup - it is important to do this before
+  requirejs is kicked off - debug toolbar messes around with define() and can cause loading
+  race conditions particularly on slow connections.
+
+  Setup as follows:
+
+  DEBUG_TOOLBAR_CONFIG = {
+      'INSERT_BEFORE': '<!-- DEBUG_TOOLBAR_PLACEHOLDER -->'
+  }
+  {% endcomment %}
+
+  <!-- DEBUG_TOOLBAR_PLACEHOLDER -->
+
   {% block scripts %}
+
     <script src="{% static 'indigo/js/lib/require.min.js' %}"></script>
     <script src="{% static 'indigo/js/main.js' %}"></script>
     <script>
