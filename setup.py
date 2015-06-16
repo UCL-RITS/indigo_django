@@ -8,9 +8,9 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='indigo-django',
-    version='0.3.0',
+    version='0.3.1',
     packages=find_packages(),
-    install_requires=['Django>=1.7'],
+    install_requires=['Django>=1.8'],
     include_package_data=True,
     description='A simple Django app providing UCL Indigo layouts and styles',
     long_description=README,
