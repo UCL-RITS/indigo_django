@@ -8,7 +8,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='indigo-django',
-    version='0.4.2',
+    version='0.4.3',
     packages=find_packages(),
     install_requires=['Django>=1.8'],
     include_package_data=True,
