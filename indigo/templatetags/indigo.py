@@ -1,4 +1,5 @@
 from django import template
+from django.forms.widgets import Select
 
 
 register = template.Library()
@@ -15,9 +16,14 @@ def _add_class(field, klass):
 @register.inclusion_tag('indigo/includes/forms/field.html')
 def indigo_field(field):
 
-    _add_class(field, 'form__control')
+    params = {'field': field}
 
-    return {'field': field}
+    if isinstance(field.field.widget, Select):
+        params['group_classes'] = 'form__group--options'
+    else:
+        _add_class(field, 'form__control')
+
+    return params
 
 
 @register.inclusion_tag('indigo/includes/forms/form_errors.html')
