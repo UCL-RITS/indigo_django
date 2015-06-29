@@ -10,7 +10,7 @@
     <meta name="author" content="UCL" />
     <meta name="description" content="UCL Homepage" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  {% endblock %}
+  {% endblock meta %}
 
   {% block social_meta %}
     <!-- social meta -->
@@ -28,13 +28,13 @@
     <meta property="og:type" content="website" />
     <meta property="og:profile_id" content="uclofficial" />
     <!-- end social meta -->
-  {% endblock %}
+  {% endblock social_meta %}
 
-  <title>{% block page_title %}{{ request.site.name }}{% endblock %}</title>
+  <title>{% block page_title %}{{ request.site.name }}{% endblock page_title %}</title>
 
   {% block styles %}
     <link href="{% static 'indigo/css/screen.min.css' %}" media="screen, projection" rel="stylesheet" type="text/css" />
-  {% endblock %}
+  {% endblock styles %}
 
 
   {% block favicons %}
@@ -42,7 +42,7 @@
     <link rel="apple-touch-icon-precomposed" href="{% static 'indigo/favicon-152.png' %}">
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="msapplication-TileImage" content="{% static 'indigo/favicon-144.png' %}">
-  {% endblock %}
+  {% endblock favicons %}
 
   {% block head_scripts %}
     <script src="{% static 'indigo/js/lib/modernizr-custom.js' %}"></script>
@@ -71,11 +71,11 @@
   {% endblock head_scripts %}
 
   {% block extra_head %}
-  {% endblock %}
+  {% endblock extra_head %}
 
 </head>
 
-<body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
+<body id="{% block body_id %}{% endblock body_id %}" class="{% block body_class %}{% endblock body_class %}">
 
   <header class="header header--desktop">
 
@@ -145,10 +145,10 @@
           <nav class="breadcrumb clearfix">
             <ul class="breadcrumb__list">
               {% block breadcrumb_links %}
-              {% endblock %}
+              {% endblock breadcrumb_links %}
             </ul>
           </nav>
-        {% endblock %}
+        {% endblock breadcrumbs %}
 
         {% block content_body %}
         {% endblock content_body %}
@@ -184,9 +184,9 @@
       });
       {% block requirejs %}
         require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
-      {% endblock %}
+      {% endblock requirejs %}
     </script>
-  {% endblock %}
+  {% endblock scripts %}
 
 </body>
 

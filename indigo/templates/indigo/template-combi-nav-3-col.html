@@ -1,17 +1,17 @@
 {% extends "indigo/base.html" %}
 
-{% block body_class %}layout-vertical layout-vertical--nav-2col layout-vertical--nav-show-top-nav{% endblock %}
+{% block body_class %}layout-vertical layout-vertical--nav-2col layout-vertical--nav-show-top-nav{% endblock body_class %}
 
 {% block content_body %}
 
   <div class="site-content__main">
     {% block content %}
-    {% endblock %}
+    {% endblock content %}
   </div>
 
   <div class="site-content__sidebar">
     {% block content_sidebar %}
-    {% endblock %}
+    {% endblock content_sidebar %}
   </div>
 
-{% endblock %}
+{% endblock content_body %}
