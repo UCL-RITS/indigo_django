@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 from django import forms
+from django.core.paginator import Paginator
 from django.forms.formsets import formset_factory
 from django.template import Context, Template
 from django.test import TestCase
@@ -114,3 +115,75 @@ class FormTagsTestCase(TestCase):
 
         # check for the management form
         self.assertIsNotNone(soup.find(id="id_form-TOTAL_FORMS"))
+
+
+class PaginatorTagsTestCase(TestCase):
+    def test_page(self):
+        """
+        Middle page of three
+        """
+        items = [1, 2, 3, 4, 5]
+        page = Paginator(items, 2).page(2)
+        context = Context({
+            'items': page
+        })
+
+        tpl = Template("{% load indigo %}{% indigo_pagination items %}")
+        soup = BeautifulSoup(tpl.render(context))
+
+        links = soup.find_all(class_='pagination__item')
+        link_text = [link.text.strip() for link in links]
+        self.assertEqual(link_text, [u'\xab', '1', '2', '3', u'\xbb'])
+
+    def test_no_next_link(self):
+        """
+        Last page of three - no next link
+        """
+        items = [1, 2, 3, 4, 5]
+        page = Paginator(items, 2).page(3)
+        context = Context({
+            'items': page
+        })
+
+        tpl = Template("{% load indigo %}{% indigo_pagination items %}")
+        soup = BeautifulSoup(tpl.render(context))
+
+        items = soup.find_all(class_='pagination__item')
+        links = [link.find('a') for link in items]
+        link_text = [link.text.strip() for link in links if link]
+        self.assertEqual(link_text, [u'\xab', '1', '2', '3'])
+
+    def test_no_prev_link(self):
+        """
+        First page of three - no previous link
+        """
+        items = [1, 2, 3, 4, 5]
+        page = Paginator(items, 2).page(1)
+        context = Context({
+            'items': page
+        })
+
+        tpl = Template("{% load indigo %}{% indigo_pagination items %}")
+        soup = BeautifulSoup(tpl.render(context))
+
+        items = soup.find_all(class_='pagination__item')
+        links = [link.find('a') for link in items]
+        link_text = [link.text.strip() for link in links if link]
+        self.assertEqual(link_text, ['1', '2', '3', u'\xbb'])
+
+    def test_single_page(self):
+        """
+        Single page - no pagination links
+        """
+        items = [1, 2]
+        page = Paginator(items, 2).page(1)
+        context = Context({
+            'items': page
+        })
+
+        tpl = Template("{% load indigo %}{% indigo_pagination items %}")
+        soup = BeautifulSoup(tpl.render(context))
+
+        links = soup.find_all(class_='pagination__item')
+        link_text = [link.text.strip() for link in links]
+        self.assertEqual(link_text, [])

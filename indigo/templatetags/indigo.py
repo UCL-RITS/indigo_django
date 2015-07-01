@@ -44,3 +44,11 @@ def indigo_form(form):
 @register.inclusion_tag('indigo/includes/forms/formset.html')
 def indigo_formset(formset):
     return {'formset': formset}
+
+
+@register.inclusion_tag('indigo/includes/pagination.html')
+def indigo_pagination(page, parameter_name='page'):
+    return {
+        'page': page,
+        'parameter_name': parameter_name,
+    }
