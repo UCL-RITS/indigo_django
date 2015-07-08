@@ -11,6 +11,6 @@
   {% indigo_field_errors field %}
 
   {% if field.help_text %}
-    <em>{{ field.help_text }}</em>
+    <em>{{ field.help_text|safe }}</em>
   {% endif %}
 </fieldset>
