@@ -1,5 +1,5 @@
 from django import template
-from django.forms.widgets import Select
+from django.forms.widgets import RadioSelect, CheckboxSelectMultiple
 
 
 register = template.Library()
@@ -14,14 +14,17 @@ def _add_class(field, klass):
 
 
 @register.inclusion_tag('indigo/includes/forms/field.html')
-def indigo_field(field):
-
+def indigo_field(field, group_classes=''):
+    group_classes = group_classes.split()
     params = {'field': field}
 
-    if isinstance(field.field.widget, Select):
-        params['group_classes'] = 'form__group--options'
+    if isinstance(field.field.widget, (RadioSelect, CheckboxSelectMultiple)):
+        group_classes.append('options')
     else:
         _add_class(field, 'form__control')
+
+    params['group_classes'] = ['form__group--{}'.format(klass)
+                               for klass in group_classes]
 
     return params
 
