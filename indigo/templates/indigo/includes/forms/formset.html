@@ -2,8 +2,10 @@
 
 {{ formset.management_form }}
 
-{% for form in formset %}
-  <div class="formset--form">
-    {% indigo_form form %}
-  </div>
-{% endfor %}
+<div class="formset formset--{{ formset.prefix }}">
+  {% for form in formset %}
+    <div class="formset--form clearfix" data-prefix="{{ formset.prefix }}">
+      {% indigo_form form %}
+    </div>
+  {% endfor %}
+</div>
