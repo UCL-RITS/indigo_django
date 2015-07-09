@@ -1,5 +1,5 @@
 from django import template
-from django.forms.widgets import RadioSelect, CheckboxSelectMultiple
+from django.forms.widgets import RadioSelect, CheckboxInput, CheckboxSelectMultiple
 
 
 register = template.Library()
@@ -18,7 +18,7 @@ def indigo_field(field, group_classes=''):
     group_classes = group_classes.split()
     params = {'field': field}
 
-    if isinstance(field.field.widget, (RadioSelect, CheckboxSelectMultiple)):
+    if isinstance(field.field.widget, (RadioSelect, CheckboxInput, CheckboxSelectMultiple)):
         group_classes.append('options')
     else:
         _add_class(field, 'form__control')
