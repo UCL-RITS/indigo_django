@@ -62,8 +62,10 @@ class FormTagsTestCase(TestCase):
         tpl = Template("{% load indigo %}{% indigo_form_errors form %}")
         soup = BeautifulSoup(tpl.render(context))
 
-        # Form-level errors shoudl be visible.
-        self.assertIsNotNone(soup.find(class_='error', text='Form is not valid'))
+        # Form-level errors should be visible.
+        error = soup.find(class_='error')
+        self.assertIsNotNone(error)
+        self.assertEqual(error.text.strip(), 'Form is not valid')
 
     def test_field_errors(self):
         form = CheeseForm({'name': 'Chicken'})
@@ -101,7 +103,9 @@ class FormTagsTestCase(TestCase):
         self.assertIsNotNone(soup.find('input', id='id_hidden'))
 
         # Make sure form level errors are displayed
-        self.assertIsNotNone(soup.find(class_='error', text='Form is not valid'))
+        error = soup.find(class_='error')
+        self.assertIsNotNone(error)
+        self.assertEqual(error.text.strip(), 'Form is not valid')
 
     def test_formset(self):
         formset = formset_factory(CheeseForm, extra=2)()
