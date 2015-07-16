@@ -2,7 +2,7 @@
 
 {{ formset.management_form }}
 
-<div class="formset formset--{{ formset.prefix }}">
+<div class="formset formset--{{ formset.prefix }} {% if has_data %}formset--has-data{% endif %}">
   {% for form in formset %}
     <div class="formset--form clearfix" data-prefix="{{ formset.prefix }}">
       {% indigo_form form %}

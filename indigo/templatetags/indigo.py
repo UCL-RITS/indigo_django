@@ -46,7 +46,15 @@ def indigo_form(form):
 
 @register.inclusion_tag('indigo/includes/forms/formset.html')
 def indigo_formset(formset):
-    return {'formset': formset}
+    has_data = any(
+        hasattr(form, 'cleaned_data') and form.cleaned_data
+        for form in formset.forms
+    )
+
+    return {
+        'formset': formset,
+        'has_data': has_data,
+    }
 
 
 @register.inclusion_tag('indigo/includes/pagination.html')
