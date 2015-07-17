@@ -1,6 +1,7 @@
 import os
 from setuptools import find_packages, setup
 
+
 with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
     README = readme.read()
 
@@ -10,7 +11,7 @@ setup(
     name='indigo-django',
     version='0.5.5',
     packages=find_packages(),
-    install_requires=['Django>=1.8'],
+    install_requires=['Django>=1.8', 'django-formset-js==0.4.3'],
     include_package_data=True,
     description='A simple Django app providing UCL Indigo layouts and styles',
     long_description=README,

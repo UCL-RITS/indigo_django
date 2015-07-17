@@ -13,4 +13,5 @@ DATABASES = {
 
 INSTALLED_APPS = (
     'indigo',
+    'djangoformsetjs',
 )
