@@ -23,6 +23,8 @@ def indigo_field(field, group_classes=''):
     else:
         _add_class(field, 'form__control')
 
+    group_classes.append(field.name)
+
     params['group_classes'] = ['form__group--{}'.format(klass)
                                for klass in group_classes]
 
