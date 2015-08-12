@@ -8,7 +8,9 @@
 
   <div data-formset-body>
     {% for form in formset %}
-      <div class="formset--form clearfix" data-prefix="{{ formset.prefix }}" data-formset-form>
+    <div class="formset--form clearfix"
+            data-prefix="{{ formset.prefix }}"
+            data-formset-form>
         {% indigo_form form %}
         <a class="delete-row" href="javascript:;" type="button" data-formset-delete-button>
           <i title="delete" class="fa fa-times-circle-o fa-l fa-lg"></i>

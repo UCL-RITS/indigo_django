@@ -1,12 +1,21 @@
 {% load indigo %}
 
 <fieldset class="form__group {{ group_classes|join:' ' }}">
-  <label for="{{ field.id_for_label }}">{{ field.label }}:
-    {% if field.field.required %}
-      <abbr title="Required">*</abbr>
-    {% endif %}
-  </label>
-  {{ field }}
+  {% if is_check %}
+    {{ field }}
+    <label for="{{ field.id_for_label }}">{{ field.label }}
+      {% if field.field.required %}
+        <abbr title="Required">*</abbr>
+      {% endif %}
+    </label>
+  {% else %}
+    <label for="{{ field.id_for_label }}">{{ field.label }}:
+      {% if field.field.required %}
+        <abbr title="Required">*</abbr>
+      {% endif %}
+    </label>
+    {{ field }}
+  {% endif %}
 
   {% indigo_field_errors field %}
 

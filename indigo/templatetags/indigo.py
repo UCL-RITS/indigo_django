@@ -23,6 +23,9 @@ def indigo_field(field, group_classes=''):
     else:
         _add_class(field, 'form__control')
 
+    if isinstance(field.field.widget, (CheckboxInput)):
+        params['is_check'] = True
+
     group_classes.append(field.name)
 
     params['group_classes'] = ['form__group--{}'.format(klass)
