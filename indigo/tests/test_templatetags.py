@@ -155,7 +155,7 @@ class PaginatorTagsTestCase(TestCase):
         items = soup.find_all(class_='pagination__item')
         links = [link.find('a') for link in items]
         link_text = [link.text.strip() for link in links if link]
-        self.assertEqual(link_text, [u'\xab', '1', '2', '3'])
+        self.assertEqual(link_text, [u'\xab', '1', '2'])
 
     def test_no_prev_link(self):
         """
@@ -173,7 +173,7 @@ class PaginatorTagsTestCase(TestCase):
         items = soup.find_all(class_='pagination__item')
         links = [link.find('a') for link in items]
         link_text = [link.text.strip() for link in links if link]
-        self.assertEqual(link_text, ['1', '2', '3', u'\xbb'])
+        self.assertEqual(link_text, ['2', '3', u'\xbb'])
 
     def test_single_page(self):
         """

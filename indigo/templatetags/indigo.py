@@ -1,6 +1,8 @@
 from django import template
 from django.forms.widgets import RadioSelect, CheckboxInput, CheckboxSelectMultiple
 
+from ..utils import get_page_numbers
+
 
 register = template.Library()
 
@@ -68,7 +70,11 @@ def indigo_formset(formset,
 
 @register.inclusion_tag('indigo/includes/pagination.html')
 def indigo_pagination(page, parameter_name='page'):
+    page_numbers = get_page_numbers(
+        page.number, page.paginator.num_pages
+    )
     return {
+        'page_numbers': page_numbers,
         'page': page,
         'parameter_name': parameter_name,
     }
