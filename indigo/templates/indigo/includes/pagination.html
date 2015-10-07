@@ -2,7 +2,7 @@
   <ul class="pagination">
       {% if page.has_previous %}
         <li class="pagination__item pagination__item--active">
-          <a title="previous page" href="?{{ parameter_name }}={{ page.previous_page_number }}">&laquo;</a>
+        <a title="previous page" href="?{{ extra_params }}&amp;{{ parameter_name }}={{ page.previous_page_number }}">&laquo;</a>
         </li>
       {% else %}
         <li class="pagination__item pagination__item--disabled"><span>&laquo;</span></li>
@@ -15,7 +15,7 @@
           </li>
         {% elif num %}
           <li class="pagination__item pagination__item--active">
-            <a href="?{{ parameter_name }}={{ num }}">{{ num }}</a>
+          <a href="?{{ extra_params }}&amp;{{ parameter_name }}={{ num }}">{{ num }}</a>
           </li>
         {% else %}
           <span>...</span>
@@ -24,7 +24,7 @@
 
       {% if page.has_next %}
         <li class="pagination__item pagination__item--active">
-          <a title="next page" href="?{{ parameter_name }}={{ page.next_page_number }}">&raquo;</a>
+          <a title="next page" href="?{{ extra_params }}&amp;{{ parameter_name }}={{ page.next_page_number }}">&raquo;</a>
         </li>
       {% else %}
       <li class="pagination__item pagination__item--disabled"><span>&raquo;</span></li>
