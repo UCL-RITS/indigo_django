@@ -1,4 +1,6 @@
 from django import template
+from django.conf import settings
+from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.forms.widgets import RadioSelect, CheckboxInput, CheckboxSelectMultiple
 from django.utils.six.moves.urllib.parse import urlencode
 
@@ -87,3 +89,11 @@ def indigo_pagination(page, parameter_name='page', extremes=2, arounds=3, params
         'page': page,
         'parameter_name': parameter_name,
     }
+
+
+@register.simple_tag
+def indigo_static(path):
+    if getattr(settings, 'INDIGO_CDN', True):
+        return '//cdn.ucl.ac.uk/indigo/{}'.format(path)
+    else:
+        return static('indigo/{}'.format(path))

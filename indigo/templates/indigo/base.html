@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load indigo %}
 
 <!DOCTYPE html>
 <!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
@@ -34,19 +35,19 @@
 
   {% block styles %}
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="{% static 'indigo/css/screen.min.css' %}" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="{% indigo_static 'css/screen.min.css' %}" media="screen, projection" rel="stylesheet" type="text/css" />
   {% endblock styles %}
 
 
   {% block favicons %}
-    <link rel="shortcut icon" href="{% static 'indigo/images/favicon.ico' %}" />
-    <link rel="apple-touch-icon-precomposed" href="{% static 'indigo/favicon-152.png' %}">
+    <link rel="shortcut icon" href="{% indigo_static 'images/favicon.ico' %}" />
+    <link rel="apple-touch-icon-precomposed" href="{% indigo_static 'favicon-152.png' %}">
     <meta name="msapplication-TileColor" content="#000000">
-    <meta name="msapplication-TileImage" content="{% static 'indigo/favicon-144.png' %}">
+    <meta name="msapplication-TileImage" content="{% indigo_static 'favicon-144.png' %}">
   {% endblock favicons %}
 
   {% block head_scripts %}
-    <script src="{% static 'indigo/js/lib/modernizr-custom.js' %}"></script>
+    <script src="{% indigo_static 'js/lib/modernizr-custom.js' %}"></script>
 
     <script>
       var cuttingTheMustard = document.querySelector && window.localStorage && window.addEventListener;
@@ -57,16 +58,16 @@
         //if old browser load the shiv
         ,
         nope: [
-        '{% static "indigo/js/lib/html5shiv-printshiv.min.js" %}', '{% static "indigo/js/lib/respond.min.js" %}'
+        '{% indigo_static "js/lib/html5shiv-printshiv.min.js" %}', '{% indigo_static "js/lib/respond.min.js" %}'
         ]
       });
       //set conditional assets for main.js
       var globalSiteSpecificVars = {
-        pathToJquery: '{% static "indigo/js/lib/jquery-1.9.1.min" %}',
+        pathToJquery: '{% indigo_static "js/lib/jquery-1.9.1.min" %}',
         googleAnalyticsIdsArray: [] //specify array of site specific id's NOT UCL generic UA-943297-1
       }
       if (cuttingTheMustard) {
-        globalSiteSpecificVars.pathToJquery = '{% static "indigo/js/lib/jquery-2.1.1.min" %}';
+        globalSiteSpecificVars.pathToJquery = '{% indigo_static "js/lib/jquery-2.1.1.min" %}';
       }
     </script>
   {% endblock head_scripts %}
@@ -81,7 +82,7 @@
   <header class="header header--desktop">
 
   <a class="header__close" href="#">
-    <img src="{% static 'indigo/images/close.png' %}" alt="X" />Close</a>
+    <img src="{% indigo_static 'images/close.png' %}" alt="X" />Close</a>
 
   {% include "indigo/includes/global-masthead.html" %}
 
@@ -125,7 +126,7 @@
 
     <header class="header header--mobile default-header">
       <a class="header__open" href="#">
-        <img src="{% static 'indigo/images/ucl-menu.svg' %}" alt="Menu" />
+        <img src="{% indigo_static 'images/ucl-menu.svg' %}" alt="Menu" />
       </a>
     </header>
 
@@ -184,11 +185,11 @@
 
   {% block scripts %}
 
-    <script src="{% static 'indigo/js/lib/require.min.js' %}"></script>
-    <script src="{% static 'indigo/js/main.js' %}"></script>
+    <script src="{% indigo_static 'js/lib/require.min.js' %}"></script>
+    <script src="{% indigo_static 'js/main.js' %}"></script>
     <script>
       require.config({
-          baseUrl: '{% static "indigo/js/lib" %}'
+          baseUrl: '{% indigo_static "js/lib" %}'
       });
       {% block requirejs %}
         require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
