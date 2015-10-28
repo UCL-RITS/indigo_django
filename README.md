@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/UCL-RITS/indigo_django.svg?branch=master)](https://travis-ci.org/UCL-RITS/indigo_django)
+
 # Indigo Django
 
 Based on release 2 of the UCL Design Language (https://github.com/UCL-WAMS/indigo)
