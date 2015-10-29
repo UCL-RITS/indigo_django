@@ -12,6 +12,7 @@ install:
 script:
     - tox -e $TOX_ENV
     
+# Cache environment between test runs
 cache:
   directories:
     - $HOME/build/UCL-RITS/indigo_django/.tox
