@@ -11,3 +11,7 @@ install:
 
 script:
     - tox -e $TOX_ENV
+    
+cache:
+  directories:
+    - $HOME/build/UCL-RITS/indigo_django/.tox
