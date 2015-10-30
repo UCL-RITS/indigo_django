@@ -84,7 +84,7 @@ def indigo_pagination(page, parameter_name='page', extremes=2, arounds=3, params
         page.number, page.paginator.num_pages, extremes, arounds
     )
     return {
-        'extra_params': urlencode(extra_params),
+        'extra_params': urlencode(extra_params) + '&' if extra_params else '',
         'page_numbers': page_numbers,
         'page': page,
         'parameter_name': parameter_name,
