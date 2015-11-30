@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='indigo-django',
-    version='0.5.11',
+    version='0.5.12',
     packages=find_packages(),
     install_requires=['Django>=1.8', 'django-formset-js==0.4.3'],
     include_package_data=True,
