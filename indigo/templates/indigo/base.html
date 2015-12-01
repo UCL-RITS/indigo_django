@@ -93,27 +93,33 @@
     <div class="sidebar">
 
       <nav class="nav nav--mobile">
-        <ul>
-          {% block nav_mobile_links %}
-          {% endblock nav_mobile_links %}
-        </ul>
+        {% block nav_mobile_inner %}
+          <ul>
+            {% block nav_mobile_links %}
+            {% endblock nav_mobile_links %}
+          </ul>
+        {% endblock nav_mobile_inner %}
       </nav>
 
       <nav class="nav nav--left">
-        <ul>
-          {% block nav_left_links %}
-          {% endblock nav_left_links %}
-        </ul>
+        {% block nav_left_inner %}
+          <ul>
+            {% block nav_left_links %}
+            {% endblock nav_left_links %}
+          </ul>
+        {% endblock nav_left_inner %}
       </nav>
 
     </div>
     <!-- end .sidebar -->
 
     <nav class="nav nav--top">
-      <ul>
-        {% block nav_top_links %}
-        {% endblock nav_top_links %}
-      </ul>
+      {% block nav_top_inner %}
+        <ul>
+          {% block nav_top_links %}
+          {% endblock nav_top_links %}
+        </ul>
+      {% endblock nav_top_inner %}
     </nav>
 
   </div>
