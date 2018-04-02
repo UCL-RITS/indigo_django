@@ -14,11 +14,6 @@ class GetPageNumbersTestCase(TestCase):
         self.assertSequenceEqual(get_page_numbers(6, 11), range(1, 12))
         self.assertSequenceEqual(get_page_numbers(11, 11), range(1, 12))
 
-    def test_show_all_when_at_threshold(self):
-        self.assertSequenceEqual(get_page_numbers(1, 11), range(1, 12))
-        self.assertSequenceEqual(get_page_numbers(6, 11), range(1, 12))
-        self.assertSequenceEqual(get_page_numbers(11, 11), range(1, 12))
-
     def test_collapse_on_both_sides_for_middle_page(self):
         self.assertSequenceEqual(
             get_page_numbers(5, 9, extremes=1, arounds=1),
